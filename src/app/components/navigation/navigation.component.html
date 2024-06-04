@@ -1,0 +1,21 @@
+<mat-toolbar class="navigation">
+  <div class="navigation_home" (click)="onLogoClick()">
+    <span class="navigation_text">Newspaper App</span>
+  </div>
+  <div class="navigation_routes">
+    <button mat-flat-button color="primary" (click)="onHandleRoute('article')">
+      Article
+    </button>
+    <button mat-flat-button color="primary" (click)="onHandleRoute('author')">
+      Author
+    </button>
+  </div>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="createClick()"
+    class="navigation_create"
+  >
+    Create
+  </button>
+</mat-toolbar>

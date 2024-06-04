@@ -1,0 +1,65 @@
+<mat-form-field class="field">
+  <mat-label>Title </mat-label>
+  <input matInput name="title" type="text" [(ngModel)]="createArticle.title" />
+</mat-form-field>
+@if (!!errorObj?.['Title']) {
+<mat-error class="field_error">{{errorObj?.['Title']}}</mat-error>
+}
+<mat-form-field class="field">
+  <mat-label>Category </mat-label>
+  <input
+    matInput
+    name="category"
+    type="text"
+    [(ngModel)]="createArticle.category"
+  />
+</mat-form-field>
+@if (!!errorObj?.['Category']) {
+<mat-error class="field_error">{{errorObj?.['Category']}}</mat-error>
+}
+<mat-form-field class="field">
+  <mat-label>Description</mat-label>
+  <input
+    matInput
+    name="content"
+    type="text"
+    [(ngModel)]="createArticle.content"
+  />
+</mat-form-field>
+@if (!!errorObj?.['Content']) {
+<mat-error class="field_error">{{errorObj?.['Content']}}</mat-error>
+}
+
+<mat-form-field class="field">
+  <mat-label>Choose a date</mat-label>
+  <input
+    matInput
+    [matDatepicker]="picker"
+    name="publishedDate"
+    [(ngModel)]="createArticle.publishedDate"
+  />
+  <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+@if (!!errorObj?.['$.publishedDate']) {
+<mat-error class="field_error">{{errorObj?.['$.publishedDate']}}</mat-error>
+} @if (!!errorObj?.['PublishedDate']) {
+<mat-error class="field_error">{{errorObj?.['PublishedDate']}}</mat-error>
+}
+
+<mat-form-field class="field">
+  <mat-label>Choose Author</mat-label>
+  <mat-select [(ngModel)]="authorId" name="Author">
+    @for(c of authors; track c.id) {
+    <mat-option [value]="c.id">{{ c.firstName + " " + c.lastName }}</mat-option>
+    }
+  </mat-select>
+</mat-form-field>
+
+<div class="buttons">
+  <button mat-flat-button (click)="clearForm()" color="accent">Clear</button>
+  <button mat-flat-button (click)="submitForm()" color="primary">
+    Submit
+  </button>
+</div>

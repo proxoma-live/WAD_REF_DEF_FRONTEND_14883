@@ -1,0 +1,49 @@
+<mat-form-field class="field">
+  <mat-label>First Name </mat-label>
+  <input
+    matInput
+    name="firstName"
+    type="text"
+    [(ngModel)]="createAuthor.firstName"
+  />
+</mat-form-field>
+@if (!!errorObj?.['FirstName']) {
+<mat-error class="field_error">{{errorObj?.['FirstName']}}</mat-error>
+}
+<mat-form-field class="field">
+  <mat-label>Last Name </mat-label>
+  <input
+    matInput
+    name="lastName"
+    type="text"
+    [(ngModel)]="createAuthor.lastName"
+  />
+</mat-form-field>
+@if (!!errorObj?.['LastName']) {
+<mat-error class="field_error">{{errorObj?.['LastName']}}</mat-error>
+}
+<mat-form-field class="field">
+  <mat-label>Email </mat-label>
+  <input matInput name="email" type="text" [(ngModel)]="createAuthor.email" />
+</mat-form-field>
+@if (!!errorObj?.['Email']) {
+<mat-error class="field_error">{{errorObj?.['Email']}}</mat-error>
+}
+<mat-form-field class="field">
+  <mat-label>Bio</mat-label>
+  <input matInput name="bio" type="text" [(ngModel)]="createAuthor.bio" />
+</mat-form-field>
+@if (!!errorObj?.['Bio']) {
+<mat-error class="field_error">{{errorObj?.['Bio']}}</mat-error>
+}
+<mat-form-field class="field">
+  <mat-label>Gender </mat-label>
+  <input matInput name="gender" type="text" [(ngModel)]="createAuthor.gender" />
+</mat-form-field>
+@if (!!errorObj?.['Gender']) {
+<mat-error class="field_error">{{errorObj?.['Gender']}}</mat-error>
+}
+<div class="buttons">
+  <button mat-flat-button (click)="clearForm()" color="accent">Clear</button>
+  <button mat-flat-button (click)="submitForm()" color="primary">Submit</button>
+</div>
